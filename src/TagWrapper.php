@@ -1,6 +1,6 @@
 <?php
 
-namespace Peidgnad\TagReplacer;
+namespace Peidgnad\TagWrapper;
 
 class TagWrapper
 {
@@ -75,11 +75,16 @@ class TagWrapper
         preg_match_all($pattern, $string, $matches, PREG_OFFSET_CAPTURE);
 
         $position = 0;
+        $indexes = [];
+        $positions = [];
 
         foreach ($matches[0] as $index => $match) {
             if (in_array($index, $this->ignoreIndexes)) {
                 continue;
             }
+
+            $indexes[$index] = $match[0];
+            $positions[$match[1]] = $match[0];
 
             // Prepend to string.
             $prepend = $this->prepend;
@@ -104,6 +109,6 @@ class TagWrapper
             $position += strlen($append);
         }
 
-        return $this->string;
+        return (new Result($this->string, $indexes, $positions));
     }
 }

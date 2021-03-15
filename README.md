@@ -37,5 +37,11 @@ $wrapper->ignoreIndex(0);
 
 $result = $wrapper->exec();
 
-var_dump($result);
+var_dump(
+    $result->getWrapped(),
+    $result->getIndexes(),
+    $result->getPositions()
+);
+
+echo $result;
 ```
