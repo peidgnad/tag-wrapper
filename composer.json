@@ -1,0 +1,18 @@
+{
+    "name": "peidgnad/tag-wrapper",
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "DiepPK",
+            "email": "peidgnad@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Peidgnad\\TagWrapper\\": "./src/"
+        }
+    }
+}
